@@ -23,7 +23,7 @@ request.onload = function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="count"
-  document.getElementById("Count").innerHTML = days + "d " + hours + "h "
+  document.getElementById("Count").innerHTML = "Countdown to Launch " + days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text 
@@ -60,18 +60,27 @@ request.onerror = function() {
 request.send();
 
 function SecondButton(){
-var request = new XMLHttpRequest();
-request.open("GET", "https://launchlibrary.net/1.4/launch?name=5&name=falcon"); 
+// var request = new XMLHttpRequest();
+request.open("GET", "https://launchlibrary.net/1.4/launch?next=5&name=falcon"); 
+request.send();
 document.getElementById("secHead").innerHTML =  ' Next Launch: Wed, November 14 2018';
  }
-request.SecondButton();
+
 
 function ThirdButton(){
-var request = new XMLHttpRequest();
-request.open("GET", "https://launchlibrary.net/1.4/launch?name=5&name=ariane"); 
+// var request = new XMLHttpRequest();
+request.open("GET", "https://launchlibrary.net/1.4/launch?next=5&name=ariane");
+request.send(); 
  document.getElementById("secHead").innerHTML =  ' Next Launch: Thurs, November 15 2018';
+
+ function FourthButton(){
+   request.open("GET", "https://launchlibrary.net/1.4/launch?next=5&name=launcherone");
+request.send(); 
+ document.getElementById("secHead").innerHTML =  ' Next Launch: Thurs, November 15 2018';
+
+ }
 }
-request.ThirdButton();
+
 
 
 
