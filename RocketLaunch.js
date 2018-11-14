@@ -1,14 +1,15 @@
 var request = new XMLHttpRequest();
 request.open('GET', 'https://launchlibrary.net/1.4/launch?next=5', true);
-
+var x;
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
     // Success!
      data = JSON.parse(request.responseText);
      console.log(data.launches)
+     clearInterval(x);
      var countDownDate = new Date(data.launches[0].net).getTime();
 
-     var x = setInterval(function() {
+      x = setInterval(function() {
 
   // Get todays date and time
   var now = new Date().getTime();
@@ -59,6 +60,12 @@ request.onerror = function() {
 
 request.send();
 
+function LaunchDefault (){
+request.abort();
+request.open("GET", "https://launchlibrary.net/1.4/launch?next=5");
+request.send(); 
+ document.getElementById("secHead").innerHTML =  ' Next Launch: Thurs, November 15 2018';
+}
 function SecondButton(){
 // var request = new XMLHttpRequest();
 request.open("GET", "https://launchlibrary.net/1.4/launch?next=5&name=falcon"); 
@@ -72,14 +79,15 @@ function ThirdButton(){
 request.open("GET", "https://launchlibrary.net/1.4/launch?next=5&name=ariane");
 request.send(); 
  document.getElementById("secHead").innerHTML =  ' Next Launch: Thurs, November 15 2018';
-
+}
  function FourthButton(){
-   request.open("GET", "https://launchlibrary.net/1.4/launch?next=5&name=launcherone");
+request.abort();
+request.open("GET", "https://launchlibrary.net/1.4/launch?next=5&name=launcherone");
 request.send(); 
  document.getElementById("secHead").innerHTML =  ' Next Launch: Thurs, November 15 2018';
 
  }
-}
+
 
 
 
