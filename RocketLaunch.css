@@ -1,0 +1,22 @@
+@charset "utf-8";
+#heading {
+    font-size: 30px;
+    color: black;
+     background: lightblue;
+    text-align: left;
+}
+#D {
+	font-size: 20px;
+}
+#Sec{
+	font-size: 20px;
+}
+#Third{	font-size: 20px;
+
+}
+#fourth{font-size: 20px
+}
+#Count{
+	font-size: 30px;
+	background: lightblue;
+}
